@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   get "tasks", to: "tasks#index"
   get "tasks/new", to: "tasks#new" # The `new` route should be placed before the `show` route
   get "tasks/:id", to: "tasks#show", as: :task
+  post "tasks", to: "tasks#create"
 end

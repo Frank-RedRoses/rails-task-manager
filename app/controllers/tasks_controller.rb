@@ -11,4 +11,17 @@ class TasksController < ApplicationController
     @task = Task.new # Needed to instantiate the form_with
   end
 
+  def create
+    @task = Task.new(task_params)
+    @task.save;
+    # No need for a create.html.erb view
+    redirect_to task_path(@task);
+  end
+
+  private
+
+  def task_params
+    params.require(:task).permit(:title, :details)
+  end
+
 end
